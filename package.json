@@ -1,0 +1,34 @@
+{
+  "name": "monefy-mobileautomation-webdriverio-appium",
+  "version": "1.0.0",
+  "description": "monefy e2e mobile automation for android and ios with webdriverio and appium",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "wdio:ios": "rm -rf allure-results && npx wdio e2e/config/wdio.ios.conf.js",
+    "wdio:android": "rm -rf allure-results && npx wdio e2e/config/wdio.android.conf.js",
+    "wdio:report": "npx allure generate allure-results --clean && npx allure open"
+  },
+  "author": "Sumant Kumar",
+  "license": "ISC",
+  "devDependencies": {
+    "@wdio/allure-reporter": "^8.39.0",
+    "@wdio/appium-service": "^9.14.0",
+    "@wdio/cli": "^9.14.0",
+    "@wdio/cucumber-framework": "^9.14.0",
+    "@wdio/dot-reporter": "^8.39.0",
+    "@wdio/local-runner": "^9.14.0",
+    "@wdio/spec-reporter": "^8.39.0",
+    "appium": "^1.22.3",
+    "appium-uiautomator2-driver": "^3.0.0",
+    "appium-xcuitest-driver": "^9.2.5",
+    "chai": "^5.1.1",
+    "mochawesome": "^7.1.3",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.3.3"
+  },
+  "dependencies": {
+    "@delta-reporter/wdio-delta-reporter-service": "^1.1.10",
+    "allure-commandline": "^2.27.0"
+  }
+}
