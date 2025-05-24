@@ -1,12 +1,14 @@
 const { config } = require('./wdio.conf');
 
 config.capabilities = [{
-    // capabilities for local Appium web tests on iOS simulator
+    // capabilities for iOS
     platformName: 'iOS',
-    'appium:deviceName': 'iPhone 15 Pro Max',
-    'appium:platformVersion': '17.2',
-    'appium:automationName': 'XCUITest',
-    "appium:bundleId": "com.example.circusBasket"
+    "appium:deviceName": "Bond007",
+    "appium:platformVersion": "16",
+    "appium:automationName": "XCUITest",
+    "appium:udid": "183902d7e28b65fb1090b949cf8058005609b6ef",
+    "appium:bundleId": "com.monefyapp.monefy",
+    "appium:noReset": false,
+    "appium:autoLaunch": true,
 }];
-
 exports.config = config;

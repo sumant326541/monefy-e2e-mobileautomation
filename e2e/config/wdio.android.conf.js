@@ -2,14 +2,13 @@ const { config } = require('./wdio.conf'); // add your own services and capabili
 
 config.capabilities = [{
     // capabilities for Android
-    maxInstances: 1,
     "platformName": "Android",
     "appium:automationName": "UiAutomator2",
     "appium:deviceName": "emulator",
     "appium:udid": "emulator-5554",
     "appium:appPackage": "com.monefy.app.lite",
     "appium:appActivity": "com.monefy.activities.main.MainActivity_",
-    "appium:noReset": false
+    "appium:noReset": false,
+    //'appium:app': 'app.apk' // path to your app
 }];
-
 exports.config = config;

@@ -1,6 +1,4 @@
-Feature: Add dish to Basket
+Feature: income and expense transactions
 
-  Scenario: As a user, I can add and remove dish to basket  
-    Given I am on the getstart screen
-    When I complete welcome offer steps
-    Then I should see moneyfy home screen
+  Scenario: As a user, I want to add an income and expense transaction
+    Given I am on moneyfy home screen

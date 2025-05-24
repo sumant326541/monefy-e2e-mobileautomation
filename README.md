@@ -39,24 +39,23 @@ npm install uiautomator2
 - emulator (for android) - For Android testing on emulators, configure Android SDK, ADB, and AVD Manager for launching Android emulators.
 - Visual Studio Code - When writing code, use a code editor, with Visual Studio Code being the preferred choice.
 
-- circus_basket/app-debug.apk'  - need to set app path in conf.json 
-- circus_basket/Runner.app - need to set app path in conf.json
+- android app installation - install app from playstorte or set app path 'appium:app': 'path/app-debug.apk' in wdio:android.conf.js
+- iOS app installation - install app from appstore or set app path 'appium:app': 'path/Runner.app' in wdio:ios.conf.js
+
+- code-editor: prefered Visual Studio Code 
 
 ## Installation
 
 Clone the repository:
 
 ```sh
-https://github.com/sumant326541/e2e-testautomation-appium-webdriverio.git
+https://github.com/sumant326541/money-e2e-mobileautomation.git
 ```
 install dependencies mentioned in package.json
 
 ```sh
 npm install
 ```
-## Set app path
-- android - set app path 'appium:app': 'path/app-debug.apk' in wdio:android.conf.js
-- iOS - set app path  'appium:app': 'path/Runner.app' in wdio:ios.conf.js
 
 ## Running Tests
 ### Android
@@ -80,4 +79,4 @@ npm run wdio:ios
 npm run wdio:report
 ``` 
 ### dot report
-- integared dot report 
+- integrated dot report 

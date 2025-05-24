@@ -1,23 +1,20 @@
 const { Given, When, Then } = require('@wdio/cucumber-framework');
 const { expect, $ } = require('@wdio/globals')
-
 const GetStartScreen = require('../screens/getstart.screen')
 const HomeScreen = require('../screens/home.screen')
-
 
 const screens = {
     getStart: GetStartScreen,
     home: HomeScreen,
 }
 
-Given(/^I am on the getstart screen$/, async () => {
-    await expect(await screens.getStart.btnGetStarted).toBeExisting();
-});
-
-When(/^I complete welcome offer steps$/, async () => {
-    await screens.getStart.completeWelcomeOfferSteps();
-});
-
-Then(/^I should see moneyfy home screen$/, async () => {
-    await expect(await screens.home.headerMonefy).toBeExisting();
+Given(/^I am on moneyfy home screen$/, async () => {
+    try {
+        await screens.getStart.completeWelcomeOfferSteps();
+        await expect(screens.home.headerMonefy).toBeExisting();
+    } catch (error) {
+        console.error('app might not be reset hence not landing on getstart page', error);
+        await screens.getStart.buttonCloseClaimMyOffer.click();
+        await expect(screens.home.headerMonefy).toBeExisting();
+    }
 });
