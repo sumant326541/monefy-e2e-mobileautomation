@@ -1,3 +1,5 @@
+const GetStartScreen = require('../screens/getstart.screen');
+const HomeScreen = require('../screens/home.screen');
 exports.config = {
     //
     // ====================
@@ -97,7 +99,7 @@ exports.config = {
     // baseUrl: 'http://localhost:8080',
     //
     // Default timeout for all waitFor* commands.
-    waitforTimeout: 10000,
+    waitforTimeout: 2000,
     //
     // Default timeout in milliseconds for request
     // if browser driver or grid doesn't send response
@@ -139,7 +141,7 @@ exports.config = {
         ['allure', {
             outputDir: 'allure-results',
             disableWebdriverScreenshotsReporting: false,
-            useCucumberStepReporter: false,
+            useCucumberStepReporter: true,
             disableMochaHooks: true,
         }],
     ],
@@ -242,8 +244,21 @@ exports.config = {
      * @param {string}                   uri      path to feature file
      * @param {GherkinDocument.IFeature} feature  Cucumber feature object
      */
-    // beforeFeature: function (uri, feature) {
-    // },
+    beforeFeature: async function (uri, feature) {
+
+        try {
+            await GetStartScreen.completeWelcomeOfferSteps();
+            await HomeScreen.handleSuggestions();
+        } catch (error1) {
+            try {
+                console.error('app might not be reset hence user landing to claim my offer final page directly', error1);
+                await GetStartScreen.getStart.closeClaimMyOfferScreen();
+                await HomeScreen.handleSuggestions();
+            } catch (error2) {
+                console.error('user is alredy at monefy home screen', error2);
+            }
+        }
+    },
     /**
      *
      * Runs before a Cucumber Scenario.

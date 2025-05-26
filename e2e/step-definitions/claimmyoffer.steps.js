@@ -5,16 +5,9 @@ const HomeScreen = require('../screens/home.screen')
 
 const screens = {
     getStart: GetStartScreen,
-    home: HomeScreen,
+    home: HomeScreen
 }
 
 Given(/^I am on moneyfy home screen$/, async () => {
-    try {
-        await screens.getStart.completeWelcomeOfferSteps();
-        await expect(screens.home.headerMonefy).toBeExisting();
-    } catch (error) {
-        console.error('app might not be reset hence not landing on getstart page', error);
-        await screens.getStart.buttonCloseClaimMyOffer.click();
-        await expect(screens.home.headerMonefy).toBeExisting();
-    }
+    await expect(screens.home.monefyHeaderText).toBeExisting();
 });
