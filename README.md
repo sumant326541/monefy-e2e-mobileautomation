@@ -11,6 +11,7 @@
 - [Running test in local](#running-tests-in-local)
 - [Running test in rocker](#running-tests-in-docker)
 - [Reports](#reports)
+- [Solution and approch explanation](#solution-and-approch-explanation)
 
 
 ## Tools And Technology
@@ -115,3 +116,46 @@ make report
 ``` 
 ### dot report
 - integrated dot report 
+
+## Solution and approch explanation
+
+ ### Appium
+ Used Appium server to run tests on both Android and iOS devices.
+
+ ### WebdriverIO
+ Chose WebdriverIO for its easy setup, Appium support, and Node.js compatibility.
+
+ Centralized dependencies in package.json and added scripts to streamline test runs.
+
+ Provides a single configuration file for setting up reporting, capabilities (Android & iOS), and other options.
+
+ Supports async/await syntax to handle synchronization effectively.
+
+ @wdio/cli offers default driver instance to easily interact with element locators.
+
+ Integrated Allure Report for rich test reporting.
+
+ Supports both native mobile and web automation in the same framework.
+
+ Easy integration with cloud device providers like BrowserStack or LambdaTest for real device testing across various platforms and OS versions.
+
+### BDD with Cucumber
+ Enables writing test scenarios in Gherkin syntax, making them understandable to non-technical stakeholders.
+
+ Promotes reusability and easier maintenance of step definitions.
+
+ Provides hooks for executing pre- and post-scenario logic.
+
+ Supports tagging to selectively run scenarios (e.g., @smoke, @regression).
+
+ Data-driven testing using Scenario Outline allows the same test case to run with multiple data sets, ensuring the test is reliable and robust against various complex input scenarios.
+
+### Page Object Model (POM)
+ Simplifies maintenance of locators and actions for both Android and iOS.
+
+ Centralizes reusable actions for consistent usage across test cases.
+
+### Single Codebase for Tests
+ Designed to run the same test code on both Android and iOS platforms.
+
+ Ensures easier maintenance and improves development efficiency.
