@@ -9,7 +9,7 @@
 - [Installation](#installation)
 - [Makefile](#makefile)
 - [Running test in local](#running-tests-in-local)
-- [Running test in rocker](#running-tests-in-docker)
+- [Running Tests in docker container](#running-tests-in-docker-cotainer)
 - [Reports](#reports)
 - [Solution and approch explanation](#solution-and-approch-explanation)
 
