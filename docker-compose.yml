@@ -1,0 +1,20 @@
+services:
+  appium:
+    build: .
+    container_name: appium-server
+    platform: linux/amd64
+    privileged: true
+    ports:
+      - "4723:4723"
+    environment:
+      - ANDROID_ADB_SERVER_ADDRESS=host.docker.internal
+      - ANDROID_SDK_ROOT=/opt/android-sdk
+      - PATH=/opt/android-sdk/platform-tools:/opt/android-sdk/emulator:/opt/android-sdk/tools:/opt/android-sdk/tools/bin:$PATH
+    volumes:
+      - .:/home/appium
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
+    entrypoint: >
+      sh -c "echo 'Using host ADB server...' &&
+             adb devices &&
+             npm run wdio:android"

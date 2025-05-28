@@ -9,6 +9,8 @@ config.capabilities = [{
     "appium:appPackage": "com.monefy.app.lite",
     "appium:appActivity": "com.monefy.activities.main.MainActivity_",
     "appium:noReset": false,
-    //'appium:app': 'app.apk' // path to your app
+    "appium:uiautomator2ServerLaunchTimeout": 120000,
+    "appium:newCommandTimeout": 300
+    //'appium:app': 'app.apk' // set path to your app
 }];
 exports.config = config;
