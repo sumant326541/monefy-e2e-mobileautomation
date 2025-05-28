@@ -7,14 +7,17 @@
 - [Tools And Technology](#tools-and-technology)
 - [Prerequisites](#prerequisites)
 - [Installation](#installation)
-- [Running Tests](#running-tests)
+- [Makefile](#makefile)
+- [Running test in local](#running-tests-in-local)
+- [Running test in rocker](#running-tests-in-docker)
 - [Reports](#reports)
+
 
 ## Tools And Technology
 - Webdriverio with Javascript
 - appium
 - BDD-Cucumber
-- Configured with emulator and simulator
+- Configured with emulator and ios real device
 - Allure-Report
 
 ## Prerequisites
@@ -27,23 +30,29 @@ v21.6.2 ,npm -v 10.8.1
 ```sh
 npm install appium -g
 ```
-- xcuitest - To enable execution on ios simulator install XCUITest driver using either the package.json or the command 
+- xcuitest - To enable execution on ios device. Install XCUITest driver using either the package.json or the command 
 ```sh
 npm install appium-xcuitest-driver
 ```
-- uiautomator2 - To enable execution on android simulator using either the package.json or the command 
+- uiautomator2 - To enable execution on android simulator. Install using either the package.json or the command 
 ```sh
 npm install uiautomator2
 ```
-- simulator(for ioS) - For iOS testing on simulators, configure Xcode for launching the iOS simulator.
+- ios device - Install webdriveragent first time and configure signing profile from xcode
 - emulator (for android) - For Android testing on emulators, configure Android SDK, ADB, and AVD Manager for launching Android emulators.
 - Visual Studio Code - When writing code, use a code editor, with Visual Studio Code being the preferred choice.
 
-- android app installation - install app from playstorte or set app path 'appium:app': 'path/app-debug.apk' in wdio:android.conf.js
-- iOS app installation - install app from appstore or set app path 'appium:app': 'path/Runner.app' in wdio:ios.conf.js
+- android app installation - install ([Android App](https://play.google.com/store/apps/details?id=com.monefy.app.lite)) or set app path capabilities 'appium:app': 'path/monefy.apk' in wdio:android.conf.js
+- iOS app installation - install ([iOS APP](https://itunes.apple.com/us/app/monefy-money-manager/id1212024409?))or set app path capabilities 'appium:app': 'path/monefy.ipa' in wdio:ios.conf.js 
+- android capabilities: update android capabilities in wdio:ios.conf.js and start-emulator.sh
+- iOS capabilities: update iOS capabilities in wdio:ios.conf.js 
 
-- code-editor: prefered Visual Studio Code 
+## Makefile 
 
+- use below command to check all available command in make file and uses 
+```sh
+make help
+```
 ## Installation
 
 Clone the repository:
@@ -57,26 +66,52 @@ install dependencies mentioned in package.json
 npm install
 ```
 
-## Running Tests
+## Running Tests in local
 ### Android
 
+- make sure android emulator has been configured 
+
 ```js
-npm run wdio:android
+make test-android
 ```
 ### iOS
 
+- make sure iOS device has connected to host machine
+
  ```js
-npm run wdio:ios
+make test-ios
 ```
+
+## Running Tests in docker container
+### Android
+
+- make sure android emulator has been configured 
+
+- Build Docker images
+
+```js
+make docker-build
+```
+- Run test in docker container with emulator on host machine
+
+```js
+make docker-up
+```
+- OR
+
+```js
+make docker-test
+```
+
 
 ## Reports
 
 ### Alluare Report
 - Allure report integration implemented
-- A report in HTML format will be created within the designated "report" folder.
+- A report in HTML format will be created within allure-report folder.
 
  ```js
-npm run wdio:report
+make report
 ``` 
 ### dot report
 - integrated dot report 
