@@ -1,7 +1,6 @@
 node_modules
 logs
 local.log
-allure-report
 allure-results
 .DS_Store
 **/.DS_Store

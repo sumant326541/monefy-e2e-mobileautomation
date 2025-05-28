@@ -23,7 +23,7 @@ When(/^I tap on expense button$/, async () => {
     await screens.home.clickOnExpenseBtn();
 });
 
-Then(/^I store balance, income and expense values$/, async () => {
+Then(/^I store balance, income and expense record$/, async () => {
     income = await screens.home.getIncomeAmount(); 
     expense = await screens.home.getExpenseAmount();
     
@@ -35,7 +35,7 @@ Then(/^I store balance, income and expense values$/, async () => {
     console.log('Stored income, expense Values:', global.storedValues);
 });
 
-Then(/^I should see the updated balance and the recorded transaction amount$/, async () => {
+Then(/^I should see the updated balance, income and expense amounts$/, async () => {
     const balance = await screens.home.getBalanceAmount();
     const income = await screens.home.getIncomeAmount();
     const expense = await screens.home.getExpenseAmount();

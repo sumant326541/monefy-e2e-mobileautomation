@@ -187,8 +187,8 @@ module.exports = class IncomeExpenseTransferCommonScreen extends BaseScreen {
 
 
     
-    async doTransfer(amount, from, to, description) {
-        await this.enterDescription(description);
+    async doTransfer(amount, from, to, notes) {
+        await this.enterDescription(notes);
         await this.selectFromAndToAccounts(from,to);
         //await this.tapOnShowKeyboardBtn();
         await this.amountTextField.click();

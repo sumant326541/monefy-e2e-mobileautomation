@@ -1,0 +1,4 @@
+{
+  "using": "xpath",
+  "value": "//*[@resource-id=\"com.monefy.app.lite:id/income_amount_text\"]"
+}

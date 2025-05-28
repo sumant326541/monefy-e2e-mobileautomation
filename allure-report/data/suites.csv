@@ -1,0 +1,4 @@
+"DESCRIPTION","DURATION IN MS","NAME","PARENT SUITE","START TIME","STATUS","STOP TIME","SUB SUITE","SUITE","TEST CLASS","TEST METHOD"
+"","17218","As a user, I want to do new transfer from one acounts to another","","Wed May 28 04:40:45 CEST 2025","passed","Wed May 28 04:41:02 CEST 2025","","income, expense, balance and transfer records","",""
+"","14723","As a user, I want to add a new income record","","Wed May 28 04:39:53 CEST 2025","passed","Wed May 28 04:40:08 CEST 2025","","income, expense, balance and transfer records","",""
+"","12299","As a user, I want to add a new expense record","","Wed May 28 04:40:17 CEST 2025","passed","Wed May 28 04:40:30 CEST 2025","","income, expense, balance and transfer records","",""

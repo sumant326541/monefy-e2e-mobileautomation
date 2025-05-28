@@ -9,8 +9,8 @@ class TransferScreen extends IncomeExpenseTransferCommonScreen {
         return $(selector);
     }
 
-    async newTransfer(amount, from, to, description) {
-        await this.doTransfer(amount, from, to, description);
+    async newTransfer(amount, from, to, notes) {
+        await this.doTransfer(amount, from, to, notes);
     }
     
 }

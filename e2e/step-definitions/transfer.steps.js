@@ -36,7 +36,7 @@ When(/^I tap on transfer button$/, async () => {
 });
 
 
-When(/^I transfer amount (.*) , from (.*) account to (.*) account with description (.*)$/, async (amount, from, to, description) => {
+When(/^I transfer amount (.*) , from (.*) account to (.*) account with notes (.*)$/, async (amount, from, to, notes) => {
     if (from.toLowerCase() === 'cash' && to.toLowerCase() === 'card') {
         global.storedValues.cashAmount -= Number(amount); // Update expected cash amount
         global.storedValues.cardAmount += Number(amount); // Update expected card amount
@@ -46,10 +46,10 @@ When(/^I transfer amount (.*) , from (.*) account to (.*) account with descripti
     }
     console.log(`Updated expected cash amount: ${global.storedValues.cashAmount}`);
     console.log(`Updated expected card amount: ${global.storedValues.cardAmount}`);
-    await screens.transfer.newTransfer(amount, from, to, description);
+    await screens.transfer.newTransfer(amount, from, to, notes);
 });
 
-Then(/^I should see the updated card and cash balances$/, async () => {
+Then(/^I should see the updated card and cash account balances$/, async () => {
     const cashAmount = await screens.accounts.getCashAmount();
     const cardAmount = await screens.accounts.getCardAmount();
     expect(cashAmount).to.equal(global.storedValues.cashAmount, `Expected cash amount ${global.storedValues.cashAmount} does not match actual cash amount ${cashAmount}`);
