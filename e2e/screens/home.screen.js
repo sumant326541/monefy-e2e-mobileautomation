@@ -55,21 +55,21 @@ class HomeScreen extends BaseScreen {
 
     get transferBtn(){
         const androidSelector = `//*[@resource-id="com.monefy.app.lite:id/transfer_menu_item"]`
-        const iosSelector = '**/XCUIElementTypeButton[`name == "Transfer"`]'
+        const iosSelector = '**/XCUIElementTypeButton[`name == "AddTransferButton"`]'
         const selector = driver.isAndroid ? androidSelector : `-ios class chain:${iosSelector}`
         return $(selector);
     }
 
     get getmenuOverflowBtn() {
         const androidSelector = `//*[@resource-id="com.monefy.app.lite:id/overflow"]`
-        const iosSelector = '**/XCUIElementTypeButton[`name == "GET STARTED"`]'
+        const iosSelector = '**/XCUIElementTypeButton[`name == "RightMenuButton"`]'
         const selector = driver.isAndroid ? androidSelector : `-ios class chain:${iosSelector}`
         return $(selector);
     }
 
     get balanceAmountText() {
         const androidSelector = `//*[@resource-id="com.monefy.app.lite:id/balance_amount"]`
-        const iosSelector = '**/XCUIElementTypeStaticText[`name == "balanceTextView"`]'
+        const iosSelector = '**/XCUIElementTypeStaticText[`name == "BalanceValue"`]'
         const selector = driver.isAndroid ? androidSelector : `-ios class chain:${iosSelector}`
         return $(selector);
     }

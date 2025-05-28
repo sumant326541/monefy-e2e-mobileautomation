@@ -1,1 +1,1 @@
-{"total":1,"items":[{"uid":"7e7d29ce07af7bec2d5627fb6a3b81e5","name":"income, expense, balance and transfer records","statistic":{"failed":0,"broken":0,"skipped":0,"passed":3,"unknown":0,"total":3}}]}
+{"total":1,"items":[{"uid":"7e7d29ce07af7bec2d5627fb6a3b81e5","name":"income, expense, balance and transfer records","statistic":{"failed":0,"broken":1,"skipped":0,"passed":2,"unknown":0,"total":3}}]}

@@ -61,10 +61,10 @@ Clone the repository:
 ```sh
 https://github.com/sumant326541/money-e2e-mobileautomation.git
 ```
-install dependencies mentioned in package.json
+install dependencies from package.json
 
 ```sh
-npm install
+make install
 ```
 
 ## Running Tests in local
@@ -75,9 +75,11 @@ npm install
 ```js
 make test-android
 ```
-### iOS
+### iOS (In-Progress)
 
 - make sure iOS device has connected to host machine
+- only locators and few step logic need to update as per ios platform to run the same test test
+- As of now it will lauch the app and start test exection but test will fail
 
  ```js
 make test-ios
@@ -156,6 +158,14 @@ make report
  Centralizes reusable actions for consistent usage across test cases.
 
 ### Single Codebase for Tests
- Designed to run the same test code on both Android and iOS platforms.
+ Designed to run the same test code on both Android and iOS platforms,ensures easier maintenance and improves development efficiency.
+ Example: we need to update only locators value here based on android and ios platform 
+  ```js
 
- Ensures easier maintenance and improves development efficiency.
+    get balanceAmountText() {
+        const androidSelector = `//*[@resource-id="com.monefy.app.lite:id/balance_amount"]`
+        const iosSelector = '**/XCUIElementTypeStaticText[`name == "BalanceValue"`]'
+        const selector = driver.isAndroid ? androidSelector : `-ios class chain:${iosSelector}`
+        return $(selector);
+    }
+```

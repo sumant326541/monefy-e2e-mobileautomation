@@ -1,3 +1,0 @@
-{
-  "text": "cash to card account transfer"
-}

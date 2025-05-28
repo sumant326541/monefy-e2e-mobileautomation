@@ -1,9 +1,10 @@
 #make file for running android and ios tests
-.PHONY: help test-android
+.PHONY: help install test-android test-ios report docker-build docker-up docker-test docker-stop docker-start docker-clean docker-logs
 
 help:
 	@echo "Makefile for running Android and iOS tests"
 	@echo "Usage:"
+	@echo "  make install         - Install appium and webdriverio dependencies"
 	@echo "  make test-android    - Run tests on Android emulator"
 	@echo "  make test-ios        - Run tests on iOS realdevice"
 	@echo "  make report          - Generate test report"
@@ -15,6 +16,9 @@ help:
 	@echo "  make docker-clean    - Clean up Docker containers and images"
 	@echo "  make docker-logs     - View logs from Docker containers"
 #Local execution
+install:
+	npm install
+
 test-android:
 	bash start-emulator.sh
 	npm run wdio:android
@@ -24,7 +28,6 @@ test-ios:
 
 report:
 	npm run wdio:report
-
 
 
 # Docker execution
